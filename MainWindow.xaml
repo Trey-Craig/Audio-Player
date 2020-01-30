@@ -1,0 +1,65 @@
+﻿<Window x:Name="window" x:Class="Media_Player.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Media_Player"
+        mc:Ignorable="d"
+        Title="Music Player" Height="809.2" Width="585" SnapsToDevicePixels="True" Background="White">
+
+    <Grid Margin="0,0,0,1.5">
+        <Button x:Name="next_bttn" HorizontalAlignment="Left" Margin="431,566,0,0" VerticalAlignment="Top" Width="70" Height="66" Click="next_bttn_Click">
+            <Image Source="C:\Users\MCA\source\repos\Media_Player\Media_Player\Media_Player_Icons\next.png" RenderTransformOrigin="0.5,0.5"></Image>
+        </Button>
+
+        <Button x:Name="stop_bttn" HorizontalAlignment="Left" Margin="335,566,0,0" VerticalAlignment="Top" Width="65" Height="66" Click="stop_bttn_Click">
+            <Image Source="C:\Users\MCA\source\repos\Media_Player\Media_Player\Media_Player_Icons\stop.png" Width="55" Height="50"></Image>
+        </Button>
+
+        <Button x:Name="pause_bttn" HorizontalAlignment="Left" Margin="234,566,0,0" VerticalAlignment="Top" Width="70" Height="66" Click="pause_bttn_Click">
+            <Image Source="C:\Users\MCA\source\repos\Media_Player\Media_Player\Media_Player_Icons\pause.png"></Image>
+        </Button>
+
+        <Button x:Name="Play_bttn" HorizontalAlignment="Left" Margin="139,566,0,0" VerticalAlignment="Top" Width="60" Height="66" Click="Play_bttn_Click">
+            <Image Source="C:\Users\MCA\source\repos\Media_Player\Media_Player\Media_Player_Icons\play.png"></Image>
+        </Button>
+
+        <Button x:Name="previous_bttn" HorizontalAlignment="Left" Margin="39,566,0,0" VerticalAlignment="Top" Width="74" Height="66" Click="previous_bttn_Click">
+            <Image Source="C:\Users\MCA\source\repos\Media_Player\Media_Player\Media_Player_Icons\previous.png" Height="56"></Image>
+        </Button>
+        <Menu HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="795">
+            <MenuItem Header="File">
+                <MenuItem Name="Add_File" Header="Add File" Click="AddFile_Click"/>
+                <MenuItem Name="Add_Files" Header="Add Files" Click="Add_Files_Click"/>
+                <MenuItem Name="Default_Skin" Header="Default Skin" Click="Default_Skin_Click"/>
+                <MenuItem Name="Dark_Mode" Header="Dark Mode" Click="Dark_Mode_Click"/>
+                <MenuItem Name="Spotify_Mode" Header="Spotify Mode" Click="Spotify_Mode_Click"/>
+            </MenuItem>
+            <MenuItem Header="Playlist">
+                <MenuItem Name="Save_Playlist" Header="Save" Click="Save_Playlist_Click"/>
+                <MenuItem Name="Load_Playlist" Header="Load" Click="Load_Playlist_Click"/>
+
+            </MenuItem>
+
+        </Menu>
+        <ListBox x:Name="music_list" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="262" Margin="298,31,0,0" SelectionChanged="Selected_Song"/>
+
+        <Button x:Name="repeat_loop" HorizontalAlignment="Left" Margin="124,667,0,0" VerticalAlignment="Top" Width="75" Height="69" Click="repeat_playlist_Click" MouseRightButtonDown="repeat_playlist_rightclick">
+            <Image Source="C:\Users\MCA\source\repos\Media_Player\Media_Player\Media_Player_Icons\repeat.png" Height="59" Width="50"></Image>
+        </Button>
+        <Button x:Name="repeat_song_bttn" HorizontalAlignment="Left" Margin="229,667,0,0" VerticalAlignment="Top" Width="75" Height="69" Click="repeat_song_bttn_Click" MouseRightButtonDown="repeat_song_rightclick">
+            <Image Source="C:\Users\MCA\source\repos\Media_Player\Media_Player\Media_Player_Icons\repeat_one.png" Height="59" Width="50"></Image>
+        </Button>
+        <Button x:Name="shuffle_bttn" HorizontalAlignment="Left" Margin="335,667,0,0" VerticalAlignment="Top" Width="85" Height="69" Click="shuffle_bttn_Click">
+            <Image Source="C:\Users\MCA\source\repos\Media_Player\Media_Player\Media_Player_Icons\shuffle.png" Height="59" Width="50"></Image>
+        </Button>
+        
+        <Label x:Name="duration_txt" Content="Pick A Song!" HorizontalAlignment="Left" Margin="364,446,0,0" VerticalAlignment="Top" Height="37" Width="124" FontSize="18"/>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="284,488,0,0" VerticalAlignment="Top" Height="27" Width="276" 
+                Thumb.DragStarted="sliProgress_DragStarted"  Thumb.DragCompleted="sliProgress_DragCompleted" ValueChanged="sliProgress_ValueChanged"/>
+        <MediaElement x:Name="picture" HorizontalAlignment="Left" Height="275" VerticalAlignment="Top" Width="270" Margin="10,52,0,0"/>
+        <Label x:Name="title_lbl" Content="" HorizontalAlignment="Left" Margin="39,332,0,0" VerticalAlignment="Top" Height="36" Width="462" FontSize="22"/>
+        <Label x:Name="artist_lbl" Content="" HorizontalAlignment="Left" Margin="39,368,0,0" VerticalAlignment="Top" Height="40" Width="462" FontSize="22"/>
+        <Label x:Name="album_lbl" Content="" HorizontalAlignment="Left" Margin="39,408,0,0" VerticalAlignment="Top" Height="42" Width="462" FontSize="22"/>
+    </Grid>
+</Window>
